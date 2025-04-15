@@ -95,20 +95,44 @@ class CalculatorTest {
     @DisplayName("should display the result after dividing two numbers")
     void testDivision() {
         Calculator calc = new Calculator();
-
         calc.pressDigitKey(9);
         calc.pressBinaryOperationKey("/");
         calc.pressDigitKey(3);
         calc.pressEqualsKey();
 
-
         String expected = "3";
         String actual = calc.readScreen();
 
         assertEquals(expected, actual);
+    }
 
+    @Test
+    @DisplayName("should display 1 after fractioning one with one")
+    void testFractioningOneWithOne() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(1);
+        calc.pressUnaryOperationKey("1/x");
 
+        String expected = "1";
+        String actual = calc.readScreen();
 
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    @DisplayName("should display 8 after pressing the equals key twice")
+    void testUsingEqualsKeyTwice() {
+        Calculator calc = new Calculator();
+        calc.pressDigitKey(2);
+        calc.pressBinaryOperationKey("+");
+        calc.pressDigitKey(3);
+        calc.pressEqualsKey();
+        calc.pressEqualsKey();
+
+        String expected = "8";
+        String actual = calc.readScreen();
+
+        assertEquals(expected, actual);
     }
 }
 
