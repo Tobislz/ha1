@@ -120,16 +120,24 @@ class CalculatorTest {
     }
 
     @Test
-    @DisplayName("should display 8 after pressing the equals key twice")
-    void testUsingEqualsKeyTwice() {
+    @DisplayName("should display 10 Digits when pressing 11 Digits")
+    void testPressing11Digits() {
         Calculator calc = new Calculator();
-        calc.pressDigitKey(2);
-        calc.pressBinaryOperationKey("+");
-        calc.pressDigitKey(3);
-        calc.pressEqualsKey();
-        calc.pressEqualsKey();
 
-        String expected = "8";
+        calc.pressDigitKey(1);
+        calc.pressDigitKey(2);
+        calc.pressDigitKey(3);
+        calc.pressDigitKey(4);
+        calc.pressDigitKey(5);
+        calc.pressDigitKey(6);
+        calc.pressDigitKey(7);
+        calc.pressDigitKey(8);
+        calc.pressDigitKey(9);
+        calc.pressDigitKey(0);
+        calc.pressDigitKey(1);
+
+
+        String expected = "1234567890";
         String actual = calc.readScreen();
 
         assertEquals(expected, actual);
